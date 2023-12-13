@@ -39,10 +39,15 @@ class RegisterController extends Controller
         $this->middleware('guest');
     }
 
-    public function register(Request $request){
-        if($request->isMethod('post')){
+    public function register(Request $request)
+    {
+        if ($request->isMethod('post')) {
 
+            // dd($request);
             $username = $request->input('username');
+            //セッションデータ送る
+            $request->session()->put('username', $username);
+
             $mail = $request->input('mail');
             $password = $request->input('password');
 
@@ -57,7 +62,8 @@ class RegisterController extends Controller
         return view('auth.register');
     }
 
-    public function added(){
+    public function added()
+    {
         return view('auth.added');
     }
 }

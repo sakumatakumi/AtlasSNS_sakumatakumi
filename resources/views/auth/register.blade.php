@@ -9,11 +9,12 @@
 
 @if ($errors->any())
 <div class="alert alert-danger">
-  <ul>
+  <tr>
+    <th>ERROR</th>
     @foreach ($errors->all() as $error)
-    <li>{{ $error }}</li>
+    <td>{{ $error }}</td>
     @endforeach
-  </ul>
+  </tr>
 </div>
 @endif
 

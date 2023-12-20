@@ -16,17 +16,17 @@ class UsersTableSeeder extends Seeder
             [
                 'username' => '幕之内一歩',
                 'mail' => 'makunoutiippo@mail',
-                'password' => bcrypt('ippo')
+                'password' => bcrypt('makunoutiippo')
             ],
             [
                 'username' => '鷹村守',
                 'mail' => 'tamkamuramamoru@mail',
-                'password' => bcrypt('takamura')
+                'password' => bcrypt('takamuramamoru')
             ],
             [
                 'username' => '宮田一郎',
                 'mail' => 'miyataitirou@mail',
-                'password' => bcrypt('miyata')
+                'password' => bcrypt('miyatamiyataitirou')
             ],
         ]);
     }

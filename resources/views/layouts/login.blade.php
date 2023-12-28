@@ -24,16 +24,17 @@
 <body>
     <header>
         <div id="head">
-            <h1><a><img src="images/logo.png"></a></h1>
+            <!-- <h1><a><img src="images/logo.png"></a></h1> -->
+            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
             <div id="">
                 <div id="">
                     <p>〇〇さん<img src="images/arrow.png"></p>
                     <div>
                         <ul>
                             <!-- <li><a href="/top">ホーム</a></li> -->
-                            <li><a href="/index">トップ</a></li>
+                            <li><a href="/top">トップ</a></li>
                             <li><a href="/profile">プロフィール</a></li>
-                            <li><a href="/logout">ログアウト</a></li>
+                            <li><a href=" {{ route('logout') }}">ログアウト</a></li>
                         </ul>
                     </div>
                 </div>

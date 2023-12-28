@@ -21,7 +21,6 @@
 
 //ログアウト中のページ
 Route::get('/login', 'Auth\LoginController@login')->name('login');
-// Route::get('/login', 'Auth\LoginController@login');
 Route::post('/login', 'Auth\LoginController@login');
 
 Route::get('/register', 'Auth\RegisterController@register');
@@ -44,5 +43,9 @@ Route::group(
 
     Route::get('/follow-list', 'PostsController@index');
     Route::get('/follower-list', 'PostsController@index');
+
+    //ログアウト用のルーティング
+    Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
+    //Route::post('/logout', 'Auth\LoginController@logout');
   }
 );

@@ -23,29 +23,31 @@
 
 <body>
     <header>
-        <div id="head">
-            <!-- <h1><a><img src="images/logo.png"></a></h1> -->
-            <h1><a href="/top"><img src="images/atlas.png"></a></h1>
-            <div id="">
-                <div id="">
-                    <p>〇〇さん<img src="images/arrow.png"></p>
-                    <div>
+        <div class="header-container">
+            <h1><a href="/top"><img src="images/atlas.png" alt="Logo"></a></h1>
+            <div class="user-info">
+                <p class="account-name">{{ Auth::user()->username }}さん</p>
+                <div class="dropdown-menu">
+                    <img src="images/arrow.png">
+                    <nav class="g-nav">
                         <ul>
-                            <!-- <li><a href="/top">ホーム</a></li> -->
-                            <li><a href="/top">トップ</a></li>
-                            <li><a href="/profile">プロフィール</a></li>
-                            <li><a href=" {{ route('logout') }}">ログアウト</a></li>
+                            <li class="nav-item"><a href="/top">HOME</a></li>
+                            <li class="nav-item"><a href="/profile">プロフィール編集</a></li>
+                            <li class="nav-item"><a href=" {{ route('logout') }}">ログアウト</a></li>
                         </ul>
-                    </div>
+                    </nav>
                 </div>
+                <img src="images/user-icon.png" alt="User Icon" class="user-icon">
+            </div>
     </header>
     <div id="row">
         <div id="container">
+            <!-- <div class="container"> -->
             @yield('content')
         </div>
         <div id="side-bar">
             <div id="confirm">
-                <p>〇〇さんの</p>
+                <p>{{ Auth::user()->username }}さんの</p>
                 <div>
                     <p>フォロー数</p>
                     <p>〇〇名</p>
@@ -62,8 +64,8 @@
     </div>
     <footer>
     </footer>
-    <script src="JavaScriptファイルのURL"></script>
-    <script src="JavaScriptファイルのURL"></script>
+    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="{{ asset('js/login.js') }}"></script>
 </body>
 
 </html>

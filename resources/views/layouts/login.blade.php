@@ -23,22 +23,24 @@
 
 <body>
     <header>
-        <div class="header-container">
-            <h1><a href="/top"><img src="images/atlas.png" alt="Logo"></a></h1>
-            <div class="user-info">
-                <p class="account-name">{{ Auth::user()->username }}さん</p>
-                <div class="dropdown-menu">
-                    <img src="images/arrow.png">
-                    <nav class="g-nav">
-                        <ul>
-                            <li class="nav-item"><a href="/top">HOME</a></li>
-                            <li class="nav-item"><a href="/profile">プロフィール編集</a></li>
-                            <li class="nav-item"><a href=" {{ route('logout') }}">ログアウト</a></li>
-                        </ul>
-                    </nav>
+        <div class="header__inner">
+            <h1><a href="/top"><img src="images/atlas.png" alt="Logo" class="header__logo"></a></h1>
+            <div class="header__guide">
+                <p class="header__user">{{ Auth::user()->username }}　さん</p>
+                <div class="header__menu">
+                    <!-- <span class="openbtn">&#x2304;</span> -->
+                    <span class="openbtn"></span>
+                    <img src="images/user-icon.png" alt="User Icon" class="header__icon">
                 </div>
-                <img src="images/user-icon.png" alt="User Icon" class="user-icon">
             </div>
+            <nav class="header__nav">
+                <ul>
+                    <li class="nav--item"><a href="/top">HOME</a></li>
+                    <li class="nav--item"><a href="/profile">プロフィール編集</a></li>
+                    <li class="nav--item"><a href=" {{ route('logout') }}">ログアウト</a></li>
+                </ul>
+            </nav>
+        </div>
     </header>
     <div id="row">
         <div id="container">
@@ -47,7 +49,7 @@
         </div>
         <div id="side-bar">
             <div id="confirm">
-                <p>{{ Auth::user()->username }}さんの</p>
+                <p>{{ Auth::user()->username }}　さんの</p>
                 <div>
                     <p>フォロー数</p>
                     <p>〇〇名</p>
@@ -64,7 +66,7 @@
     </div>
     <footer>
     </footer>
-    <script src="{{ asset('js/app.js') }}"></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="{{ asset('js/login.js') }}"></script>
 </body>
 

@@ -17,9 +17,9 @@
   <!--改行有りのタグ-->
   <p class="posted__post">{{ $post->post }}</p>
   <p class="posted__time">{{ $post->updated_at }}</p>
-  <!-- ユーザーだけ表示 -->
+  <!-- ユーザーだけ表示 if文で区分してあげる。自分とその他。 -->
+  @auth
   <div class="posted__edit">
-    <!-- valueは反復された値の中の各要素を指すよ -->
     <a class="js-modal-open" href="#
 " post="{{$post->post}}" post_id="{{$post->id}}">
       <img src="images/edit.png" alt="編集" class="edit--btn">
@@ -31,6 +31,7 @@
   <button type="submit" class="posted__trash2" name="posted__trash2">
     <img src="images/trash-h.png" alt="削除ホバー" class="posts__icon icon--trash2"></button>
 </div>
+@endauth
 @endforeach
 
 <!-- モーダル中身 -->
@@ -41,11 +42,10 @@
       @csrf
       <textarea name="modal_post" class="modal_post"></textarea>
       <input type="hidden" name="modal_id" class="modal_id">
-      <a class="js-modal-close" href="{{ route('posts.update') }}">
+      <button type="submit">
         <img src="images/edit.png" alt="編集" class="edit--btn">
-      </a>
+      </button>
     </form>
-    {{ csrf_field() }}
   </div>
 </div>
 

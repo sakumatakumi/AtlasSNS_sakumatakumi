@@ -37,7 +37,7 @@ class PostsController extends Controller
 
     public function update(Request $request)
     {
-        dd($request);
+        // dd($request);
         $post_id = $request->input('modal_id');
         $post = Post::findOrFail($post_id);
         $newPostContent = $request->modal_post;

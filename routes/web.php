@@ -38,6 +38,9 @@ Route::group(
     Route::get('/top', 'PostsController@index');
     Route::post('/top', 'PostsController@posts')->name('posts');
 
+    // 編集用ルーティング
+    Route::post('/posts/update', 'PostController@update')->name('posts.update');
+
 
     Route::get('/profile', 'UsersController@profile');
 

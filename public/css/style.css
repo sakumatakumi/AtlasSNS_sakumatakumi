@@ -29,11 +29,11 @@ header {
     background: #186AC9;
     color: #fff;
     padding: 20px 20px;
+    position: relative;
 }
 
 .header__inner {
     display: flex;
-    position: relative;
     justify-content: space-between;
     align-items: center;
 }
@@ -47,40 +47,36 @@ header {
 .header__guide {
     display: flex;
     align-items: center;
-    width: auto;
 }
 
-.header__user,
-.header__menu {
-    white-space: nowrap;
-}
+
 
 
 .header__user {
     font-weight: bold;
     margin-right: 20px;
+    white-space: nowrap;
 }
 
 /* アコーディオンメニュー */
 .header__menu {
-    flex-wrap: nowrap;
-    width: 50%;
+    display: flex;
+    align-items: center;
 }
 
 .header__nav {
     display: none;
-    position: fixed;
+    position: absolute;
     border: 2px solid #191970;
     background-color: #fff;
-    width: 100px;
-    margin-right: 0;
-    margin-left: 0;
+    width: 20%;
     font-size: 20px;
     top: 100%;
 }
 
 .header__nav.active {
     display: block;
+    margin-right: 0;
 }
 
 .nav--item {
@@ -88,29 +84,104 @@ header {
     padding: 10px;
 }
 
+.header__btn {
+    margin-right: 20px;
+}
 
 /* アコーディオンメニューのボタン */
-.openbtn {
+.btn--open {
     display: inline-block;
     width: 10px;
     height: 10px;
     border-right: 2px solid #fff;
     border-bottom: 2px solid #fff;
-    margin-right: 20px;
     cursor: pointer;
     transform: rotate(45deg);
     transition: transform 0.3s;
     z-index: 998;
 }
 
-.openbtn.active {
+.btn--open.active {
     transform: rotate(225deg);
 }
 
 /* アイコン画像 */
 .header__icon {
-    /* margin-right: 20px; */
+    white-space: nowrap;
+    width: 40px;
+    height: 40px;
 }
+
+
+
+/* topの投稿部分 */
+.posts {
+
+    padding-left: 60px;
+    padding-right: 120px;
+    height: auto;
+    border-bottom: 4px solid #ddd;
+}
+
+.posts__icon {
+    width: 40px;
+    height: 40px;
+    padding-top: 0;
+}
+
+.posts__text {
+    border: none;
+    resize: none;
+    outline: none;
+    font-size: 20px;
+}
+
+.posts__btn {
+    width: 40px;
+    height: 40px;
+    border-radius: 10%;
+    background-image: url(../images/post.png);
+    background-size: contain;
+    color: transparent;
+    border: none;
+}
+
+
+/* モーダル部分 */
+.posted__edit {
+    margin: 0 auto;
+    padding: 40px;
+}
+
+.modal {
+    display: none;
+    height: 100vh;
+    position: fixed;
+    top: 0;
+    width: 100%;
+}
+
+.modal__bg {
+    background: rgba(0, 0, 0, 0.8);
+    height: 100vh;
+    position: absolute;
+    width: 100%;
+}
+
+.modal__content {
+    background: #fff;
+    left: 50%;
+    padding: 40px;
+    position: absolute;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    width: 60%;
+}
+
+
+
+
+
 
 /* main content */
 #row {

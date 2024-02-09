@@ -29,8 +29,11 @@
                 <p class="header__user">{{ Auth::user()->username }}　さん</p>
                 <div class="header__menu">
                     <!-- <span class="openbtn">&#x2304;</span> -->
-                    <span class="openbtn"></span>
-                    <img src="images/user-icon.png" alt="User Icon" class="header__icon">
+                    <div class="header__btn">
+                        <span class="btn--open"></span>
+                    </div>
+                    <!-- 仮初のアイコン -->
+                    <img src="images/icon1.png" alt="User Icon" class="header__icon">
                 </div>
             </div>
             <nav class="header__nav">

@@ -18,7 +18,7 @@
   <p class="posted__post">{{ $post->post }}</p>
   <p class="posted__time">{{ $post->updated_at }}</p>
   <!-- ユーザーだけ表示 if文で区分してあげる。自分とその他。 -->
-  @auth
+  @if($post->user_id == Auth::id())
   <div class="posted__edit">
     <a class="js-modal-open" href="#
 " post="{{$post->post}}" post_id="{{$post->id}}">
@@ -28,10 +28,13 @@
   <!-- ホバーしたとき切り替わる -->
   <button type="submit" class="posted__trash" name="posted__trash">
     <img src="images/trash.png" alt="削除" class="posts__icon icon--trash"></button>
-  <button type="submit" class="posted__trash2" name="posted__trash2">
-    <img src="images/trash-h.png" alt="削除ホバー" class="posts__icon icon--trash2"></button>
+  <form action="{{ route('posts.delete', ['id' => $post->id]) }}" method="post">
+    @csrf
+    <button type="submit" class="posted__trash2" name="posted__trash2" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+      <img src="images/trash-h.png" alt="削除ホバー" class="posts__icon icon--trash2"></button>
+  </form>
+  @endif
 </div>
-@endauth
 @endforeach
 
 <!-- モーダル中身 -->

@@ -41,6 +41,7 @@ Route::group(
     // 編集用ルーティング
     Route::post('/posts/update', 'PostsController@update')->name('posts.update');
 
+    Route::post('/posts/{id}/delete', 'PostsController@delete')->name('posts.delete');
 
     Route::get('/profile', 'UsersController@profile');
 

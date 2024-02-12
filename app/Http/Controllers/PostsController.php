@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Post;
-
+use Illuminate\Support\Facades\Route;
 
 class PostsController extends Controller
 {
@@ -43,6 +43,12 @@ class PostsController extends Controller
         $newPostContent = $request->modal_post;
         $post->post = $newPostContent;
         $post->save();
+        return redirect()->back();
+    }
+
+    public function delete($id)
+    {
+        Post::where('id', $id)->delete();
         return redirect()->back();
     }
 }

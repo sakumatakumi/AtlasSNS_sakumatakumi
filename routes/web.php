@@ -45,7 +45,7 @@ Route::group(
 
     Route::get('/profile', 'UsersController@profile');
 
-    Route::get('/search', 'UsersController@search');
+    Route::post('/search', 'UsersController@search')->name('search');
 
     Route::get('/follow-list', 'FollowsController@followList');
     Route::get('/follower-list', 'FollowsController@followerList');

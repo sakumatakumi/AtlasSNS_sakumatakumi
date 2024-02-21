@@ -20,12 +20,22 @@
 <div class="user__list">
   <img src="images/icon1.png" alt="User Icon" class="list--icon">
   <p class="posted__name">{{ $user->username }}</p>
-  <button type="submit" class="follow--btn">
-    フォローする
-  </button>
-  <button type="submit" class="unfollow--btn">
-    フォロー解除
-  </button>
+
+  <form action="{{ route('follow', $user->id) }}" method="POST">
+    @csrf
+    <input type="hidden" name="user_id_to_follow" value="{{ $user->id }}">
+    <button type="submit" class="follow--btn">
+      フォローする
+    </button>
+  </form>
+
+  <form action="{{ route('unfollow', $user->id) }}" method="POST">
+    @csrf
+    <input type="hidden" name="user_id_to_unfollow" value="{{ $user->id }}">
+    <button type="submit" class="unfollow--btn">
+      フォロー解除
+    </button>
+  </form>
 </div>
 @endforeach
 

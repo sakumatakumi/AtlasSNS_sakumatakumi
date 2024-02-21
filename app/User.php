@@ -32,4 +32,17 @@ class User extends Authenticatable
     {
         return $this->hasMany('App\Post');
     }
+
+    //基本的な型は第一引数は相手のモデル、第二はテーブル名、第三自分のIDが入る場所　、第四　相手のIDがはいるカラムを指定
+    //省略可能な場合もあり。laravel公式なドキュメントあり
+    public function followers()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'followed_id', 'following_id');
+    }
+
+
+    public function followings()
+    {
+        return $this->belongsToMany(User::class, 'follows', 'following_id', 'followed_id');
+    }
 }

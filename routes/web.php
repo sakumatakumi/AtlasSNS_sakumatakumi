@@ -45,9 +45,13 @@ Route::group(
 
     Route::get('/profile', 'UsersController@profile');
 
-    Route::post('/search', 'UsersController@search')->name('search');
+    Route::get('/search', 'UsersController@search')->name('search');
+
+    Route::post('/follow/{user_id_to_follow}', 'FollowsController@followUser')->name('follow');
+    Route::post('/unfollow/{user_id_to_unfollow}', 'FollowsController@unfollowUser')->name('unfollow');
 
     Route::get('/follow-list', 'FollowsController@followList');
+
     Route::get('/follower-list', 'FollowsController@followerList');
 
     //ログアウト用のルーティング

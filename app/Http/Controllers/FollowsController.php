@@ -24,16 +24,6 @@ class FollowsController extends Controller
         return redirect()->back();
     }
 
-    public function showCount()
-    {
-        //現在ログインしているユーザーがUserモデルで定義されたメソッドをの数を数えてね
-        $followingCount = auth()->user()->followings()->count();
-        //フォローしている人の数を数えてね。
-        $followedCount = auth()->user()->followed()->count();
-
-        return view('counts', compact('followingCount', 'followedCount'));
-    }
-
 
     public function followList()
     {

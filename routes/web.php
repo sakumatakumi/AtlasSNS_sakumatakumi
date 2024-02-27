@@ -44,6 +44,8 @@ Route::group(
     Route::post('/posts/{id}/delete', 'PostsController@delete')->name('posts.delete');
 
     Route::get('/profile', 'UsersController@profile');
+    //プロフィールアップデート
+    Route::post('/profile/update', 'UsersController@update')->name('profile.update');
 
     Route::get('/search', 'UsersController@search')->name('search');
 

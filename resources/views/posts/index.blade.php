@@ -3,7 +3,7 @@
 @section('content')
 <div class="posts">
   {{ Form::open(['route' => 'posts']) }}
-  <img src="images/icon1.png" alt="User Icon" class="posts__icon">
+  <img src="{{ asset('storage/profileImages/' . Auth::user()->images) }}" alt="User Icon" class="posts__icon">
   {{ Form::textarea('post', null,['required', 'class' => 'posts__text', 'placeholder' => '投稿内容を入力してください。'])}}
   <input type="submit" class="posts__btn" name="posts__btn">
   {!! Form::close() !!}
@@ -12,7 +12,14 @@
 @foreach ($posts as $post)
 <!-- 繰り返し（foreach））php読み返し -->
 <div class="posted">
+  <!-- もし、icon.png文字列の時、デフォルト画像を出す。 -->
+
+  <!-- それ以外は下記表示。 -->
+  @if($post->user->images == "icon1.png")
   <img src="images/icon1.png" alt="User Icon" class="posted__icon">
+  @else
+  <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon">
+  @endif
   <p class="posted__name">{{ $post->user->username }}</p>
   <!--改行有りのタグ-->
   <p class="posted__post">{{ $post->post }}</p>

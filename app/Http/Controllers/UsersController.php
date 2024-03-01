@@ -69,4 +69,11 @@ class UsersController extends Controller
         $users = $query->get();
         return view('users.search', ['users' => $users], ['searchWord' => $search]);
     }
+
+
+
+    public function otherProfile()
+    {
+        return view('users.otherProfile');
+    }
 }

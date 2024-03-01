@@ -56,6 +56,8 @@ Route::group(
 
     Route::get('/follower-list', 'FollowsController@followerList');
 
+    Route::post('/other-profile/{id}', 'UsersController@otherProfile')->name('other.profile');
+
     //ログアウト用のルーティング
     Route::get('/logout', 'Auth\LoginController@logout')->name('logout');
     //Route::post('/logout', 'Auth\LoginController@logout');

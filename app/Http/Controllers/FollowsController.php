@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use App\Post;
+use Auth;
 
 class FollowsController extends Controller
 {
@@ -27,11 +29,32 @@ class FollowsController extends Controller
 
     public function followList()
     {
-        return view('follows.followList');
+        //まずは、ログインしているuserがフォローしている人のuserIDを取得して変数へ
+        $followingUserIds = Auth::user()->followings()->pluck('followed_id');
+
+        //ポストテーブルから上記で取得したユーザーID達のポストを取得
+        $followingPosts = Post::whereIn('user_id', $followingUserIds)->get();
+
+        //userテーブルから上記で取得したユーザーID達の情報を取得（アイコン、名前、時間）
+        $followingUsers = User::whereIn('id', $followingUserIds)->get();
+
+        //送りたい情報は二つあるので、二つかく
+        return view('follows.followList', ['followingUsers' => $followingUsers, 'followingPosts' => $followingPosts]);
     }
 
     public function followerList()
     {
+        //まずは、ログインしているuserがフォローしている人のuserIDを取得して変数へ
+        $followingUserIds = Auth::user()->followings()->pluck('followed_id');
+
+        //ポストテーブルから上記で取得したユーザーID達のポストを取得
+        $followingPosts = Post::whereIn('user_id', $followingUserIds)->get();
+
+        //userテーブルから上記で取得したユーザーID達の情報を取得（アイコン、名前、時間）
+        $followingUsers = User::whereIn('id', $followingUserIds)->get();
+
+        //送りたい情報は二つあるので、二つかく
+        return view('follows.followList', ['followingUsers' => $followingUsers, 'followingPosts' => $followingPosts]);
         return view('follows.followerList');
     }
 }

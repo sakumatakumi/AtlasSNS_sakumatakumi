@@ -24,16 +24,18 @@
 <body>
     <header>
         <div class="header__inner">
-            <h1><a href="/top"><img src="images/atlas.png" alt="Logo" class="header__logo"></a></h1>
+            <h1><a href="/top"><img src="{{ asset('images/atlas.png') }}" alt="Logo" class="header__logo"></a></h1>
             <div class="header__guide">
                 <p class="header__user">{{ Auth::user()->username }}　さん</p>
                 <div class="header__menu">
-                    <!-- <span class="openbtn">&#x2304;</span> -->
                     <div class="header__btn">
                         <span class="btn--open"></span>
                     </div>
-                    <!-- 仮初のアイコン -->
-                    <img src="images/icon1.png" alt="User Icon" class="header__icon">
+                    @if(Auth::user()->images == "icon1.png")
+                    <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posts__icon">
+                    @else
+                    <img src="{{ asset('storage/profileImages/' . Auth::user()->images) }}" alt="User Icon" class="header__icon">
+                    @endif
                 </div>
             </div>
             <nav class="header__nav">

@@ -12,9 +12,6 @@
 @foreach ($posts as $post)
 <!-- 繰り返し（foreach））php読み返し -->
 <div class="posted">
-  <!-- もし、icon.png文字列の時、デフォルト画像を出す。 -->
-
-  <!-- それ以外は下記表示。 -->
   @if($post->user->images == "icon1.png")
   <img src="images/icon1.png" alt="User Icon" class="posted__icon">
   @else
@@ -37,7 +34,7 @@
     <img src="images/trash.png" alt="削除" class="posts__icon icon--trash"></button>
   <form action="{{ route('posts.delete', ['id' => $post->id]) }}" method="post">
     @csrf
-    <button type="submit" class="posted__trash2" name="posted__trash2" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+    <button type="submit" class="posted__trash" name="posted__trash" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
       <img src="images/trash-h.png" alt="削除ホバー" class="posts__icon icon--trash2"></button>
   </form>
   @endif

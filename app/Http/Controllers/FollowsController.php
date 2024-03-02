@@ -33,7 +33,7 @@ class FollowsController extends Controller
         $followingUserIds = Auth::user()->followings()->pluck('followed_id');
 
         //ポストテーブルから上記で取得したユーザーID達のポストを取得
-        $followingPosts = Post::whereIn('user_id', $followingUserIds)->get();
+        $followingPosts = Post::whereIn('user_id', $followingUserIds)->orderBy('created_at', 'desc')->get();
 
         //userテーブルから上記で取得したユーザーID達の情報を取得（アイコン、名前、時間）
         $followingUsers = User::whereIn('id', $followingUserIds)->get();
@@ -45,16 +45,15 @@ class FollowsController extends Controller
     public function followerList()
     {
         //まずは、ログインしているuserがフォローしている人のuserIDを取得して変数へ
-        $followingUserIds = Auth::user()->followings()->pluck('followed_id');
+        $followerUserIds = Auth::user()->followers()->pluck('following_id');
 
         //ポストテーブルから上記で取得したユーザーID達のポストを取得
-        $followingPosts = Post::whereIn('user_id', $followingUserIds)->get();
+        $followerPosts = Post::whereIn('user_id', $followerUserIds)->orderBy('created_at', 'desc')->get();
 
         //userテーブルから上記で取得したユーザーID達の情報を取得（アイコン、名前、時間）
-        $followingUsers = User::whereIn('id', $followingUserIds)->get();
+        $followerUsers = User::whereIn('id', $followerUserIds)->get();
 
         //送りたい情報は二つあるので、二つかく
-        return view('follows.followList', ['followingUsers' => $followingUsers, 'followingPosts' => $followingPosts]);
-        return view('follows.followerList');
+        return view('follows.followerList', ['followerUsers' => $followerUsers, 'followerPosts' => $followerPosts]);
     }
 }

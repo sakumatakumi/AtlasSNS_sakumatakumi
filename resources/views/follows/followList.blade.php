@@ -9,7 +9,7 @@
   <form action="{{ route('other.profile', ['id' => $user]) }}" method="post">
     @csrf
     <button type="submit" class="followlist__btn" name="otherProfileIds">
-      <img src="images/icon1.png" alt="User Icon">
+      <img src="{{ asset('images/icon1.png') }}" alt="User Icon">
     </button>
   </form>
   @else
@@ -33,7 +33,7 @@
     <p class="posted__name">{{ $post->user->username }}</p>
     <!--改行有りのタグ-->
     <p class="posted__post">{{ $post->post }}</p>
-    <p class="posted__time">{{ $post->updated_at }}</p>
+    <p class="posted__time">{{ $post->created_at }}</p>
   </div>
   @endforeach
 </div>

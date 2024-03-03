@@ -32,6 +32,20 @@
   </form>
   @endif
 
+  @foreach ($post as $post)
+  @if($post->user->images == "icon1.png")
+  <img src="{{asset('images/icon1.png')}}" alt="User Icon" class="posted__icon">
+  @else
+  <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon">
+  @endif
+  <p class="posted__name">{{ $post->user->username }}</p>
+  <!--改行有りのタグ-->
+  <p class="posted__post">{{ $post->post }}</p>
+  <p class="posted__time">{{ $post->created_at }}</p>
+  @endforeach
+
+
+
 </div>
 
 @endsection

@@ -76,7 +76,7 @@ class UsersController extends Controller
     public function otherProfile($id)
     {
         $user = User::findOrFail($id);
-        $post = Post::where('user_id', $id)->with('user')->get();
+        $post = Post::where('user_id', $id)->with('user')->orderBy('created_at', 'desc')->get();
         //with()の中はモデルの中で宣言したメソッド。
         // dd($post);
         return view('users.otherProfile', ['user' => $user, 'post' => $post]);

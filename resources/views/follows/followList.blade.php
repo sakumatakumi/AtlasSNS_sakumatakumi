@@ -26,9 +26,19 @@
   <!-- 繰り返し（foreach））php読み返し -->
   <div class="followlist__posted">
     @if($post->user->images == "icon1.png")
-    <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
+    <form action="{{ route('other.profile', ['id' => $post->user_id]) }}" method="post">
+      @csrf
+      <button type="submit" class="followlist__btn" name="otherProfileIds">
+        <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
+      </button>
+    </form>
     @else
-    <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon">
+    <form action="{{ route('other.profile', ['id' => $post->user_id]) }}" method="post">
+      @csrf
+      <button type="submit" class="followlist__btn" name="otherProfileIds">
+        <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon">
+      </button>
+    </form>
     @endif
     <p class="posted__name">{{ $post->user->username }}</p>
     <!--改行有りのタグ-->

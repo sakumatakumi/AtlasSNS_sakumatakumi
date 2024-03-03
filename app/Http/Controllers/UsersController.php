@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Validation\Rule;
 use Auth;
 use App\User;
+use App\Post;
 
 class UsersController extends Controller
 {
@@ -72,8 +73,12 @@ class UsersController extends Controller
 
 
 
-    public function otherProfile()
+    public function otherProfile($id)
     {
-        return view('users.otherProfile');
+        $user = User::findOrFail($id);
+        $post = Post::where('user_id', $id)->with('user')->get();
+        //with()の中はモデルの中で宣言したメソッド。
+        // dd($post);
+        return view('users.otherProfile', ['user' => $user, 'post' => $post]);
     }
 }

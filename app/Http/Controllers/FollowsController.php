@@ -15,6 +15,7 @@ class FollowsController extends Controller
         $user = User::findOrFail($user_id_to_follow);
         auth()->user()->followings()->attach($user->id);
         // フォロー成功時の処理
+        //下の記述はget送信となる。
         return redirect()->back();
     }
 

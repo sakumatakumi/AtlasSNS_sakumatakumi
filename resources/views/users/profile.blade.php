@@ -40,7 +40,7 @@
 
     <div class="profile__edit">
       <label class="edit--text" for="bio">自己紹介</label>
-      <textarea name="editBio" value="{{ Auth::user()->bio }}" class=edit--bio></textarea>
+      <textarea name="editBio" class=edit--bio>{{ Auth::user()->bio }}</textarea>
     </div>
 
     <div class="profile__edit">

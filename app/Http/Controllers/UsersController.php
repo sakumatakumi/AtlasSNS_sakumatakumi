@@ -23,8 +23,8 @@ class UsersController extends Controller
             // 自分を除くユニークにしたい。ユニーク→１個のみ（かぶりなし）
             'editMail' => ['required', Rule::unique('users', 'mail')->ignore(Auth::id()), 'min:5', 'max:40', 'email'],
             'editPassword' => 'required|min:8|max:20|alpha_dash|confirmed',
-            'bio' => 'nullable|max:150',
-            'images' => 'nullable|image|mimes:jpg,png,bmp,gif,svg',
+            'editBio' => 'nullable|max:150',
+            'editImages' => 'nullable|image|mimes:jpg,png,bmp,gif,svg',
         ]);
 
         $user = Auth::user();

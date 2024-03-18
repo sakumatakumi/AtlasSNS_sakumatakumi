@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Carbon\Carbon;
 
 class Post extends Model
 {
@@ -15,5 +16,10 @@ class Post extends Model
     public function user()
     {
         return $this->belongsTo('App\User');
+    }
+
+    public function getCreatedAtFormattedAttribute()
+    {
+        return Carbon::parse($this->created_at)->format('Y-m-d H:i');
     }
 }

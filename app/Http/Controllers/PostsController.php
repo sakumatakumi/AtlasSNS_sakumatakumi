@@ -10,7 +10,14 @@ class PostsController extends Controller
 {
     public function index()
     {
-        $post = Post::with('user')->get();  //with()の中はモデルの中で宣言したメソッド。
+        $userId = auth()->id();
+
+        $followingIds = auth()->user()->followings()->pluck('followed_id');
+
+        $post = Post::with('user')
+            ->whereIn('user_id', $followingIds)
+            ->orWhere('user_id', $userId)
+            ->orderBy('created_at', 'desc')->get();  //with()の中はモデルの中で宣言したメソッド。
         // dd($post);
         return view('posts.index', ['posts' => $post]);
     }
@@ -19,7 +26,7 @@ class PostsController extends Controller
     {
         // バリデーション設定
         $request->validate([
-            'post' => 'required|max:150'
+            'post' => 'required|min:1|max:150'
         ]);
 
         $post = $request->input('post');
@@ -38,6 +45,10 @@ class PostsController extends Controller
     public function update(Request $request)
     {
         // dd($request);
+        $request->validate([
+            'modal_post' => 'required|min:1|max:150'
+        ]);
+
         $post_id = $request->input('modal_id');
         $post = Post::findOrFail($post_id);
         $newPostContent = $request->modal_post;

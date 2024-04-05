@@ -2,16 +2,6 @@
 
 @section('content')
 <div class="posts">
-  {{ Form::open(['route' => 'posts']) }}
-
-
-  @if(Auth::user()->images == "icon1.png")
-  <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
-  @else
-  <img src="{{asset('storage/profileImages/' . Auth::user()->images)}}" alt="User Icon" class="posted__icon">
-  @endif
-  {{ Form::textarea('post', null,['class' => 'posts__text', 'placeholder' => '投稿内容を入力してください。'])}}
-
   @if ($errors->any())
   <div class="alert alert-danger">
     <tr>
@@ -22,9 +12,25 @@
     </tr>
   </div>
   @endif
-
-  <input type="submit" class="posts__btn" name="posts__btn">
-  {!! Form::close() !!}
+  <div class="posts__area">
+    <div class="posts__icon">
+      {{ Form::open(['route' => 'posts']) }}
+      @if(Auth::user()->images == "icon1.png")
+      <img src="{{ asset('images/icon1.png') }}" alt="User Icon">
+      @else
+      <img src="{{asset('storage/profileImages/' . Auth::user()->images)}}" alt="User Icon">
+      @endif
+    </div>
+    <div class="posts__from">
+      <div class="posts__text">
+        {{ Form::textarea('post', null,['class' => 'posts__text', 'placeholder' => '投稿内容を入力してください。'])}}
+      </div>
+      <!-- <div class="posts__btn"> -->
+      <input type="submit" class="posts__btn" name="posts__btn">
+      <!-- </div> -->
+      {!! Form::close() !!}
+    </div>
+  </div>
 </div>
 
 @foreach ($posts as $post)
@@ -48,11 +54,11 @@
   </div>
   <!-- ホバーしたとき切り替わる -->
   <button type="submit" class="posted__trash" name="posted__trash">
-    <img src="images/trash.png" alt="削除" class="posts__icon icon--trash"></button>
+    <img src="images/trash.png" alt="削除" class="posted__trash--icon"></button>
   <form action="{{ route('posts.delete', ['id' => $post->id]) }}" method="post">
     @csrf
     <button type="submit" class="posted__trash" name="posted__trash" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
-      <img src="images/trash-h.png" alt="削除ホバー" class="posts__icon icon--trash2"></button>
+      <img src="images/trash-h.png" alt="削除ホバー" class="posted__trash--icon icon-hover"></button>
   </form>
   @endif
 </div>

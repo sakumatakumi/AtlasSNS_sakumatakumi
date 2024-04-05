@@ -1,7 +1,7 @@
 @charset "utf-8";
 
 /* ブラウザのデフォルトをリセット */
-html,
+/* html,
 body,
 h1,
 h2,
@@ -9,10 +9,11 @@ p,
 ul,
 li {
     width: 100%;
+    height: 100%;
     margin: 0;
     padding: 0;
     border: 0;
-}
+} */
 
 /* ページ全体の基本的なフォントや行の設定 */
 body {
@@ -23,6 +24,38 @@ body {
     background-color: #fff;
 }
 
+img{
+    width: 45px;
+    height: 45px;
+}
+
+
+/* main content */
+.row {
+    position: absolute;
+    display: flex;
+    flex-flow: row wrap;
+    width: 100%;
+    height: 100%;
+}
+
+.container {
+    flex: 0 0 80%;
+    /* display: calc(100% / 5); */
+    height: 100%;
+}
+
+.side-bar {
+    /* flex: 0 0 19.9%; */
+    width: 19.9%;
+    height: 100%;
+    border-left: 1px solid #727272;
+    background-color: #c4ffec;
+}
+
+.confirm{
+height: 100%;
+}
 
 /* header */
 header {
@@ -38,7 +71,6 @@ header {
     align-items: center;
 }
 
-
 .header__logo {
     width: 100px;
     height: auto;
@@ -48,9 +80,6 @@ header {
     display: flex;
     align-items: center;
 }
-
-
-
 
 .header__user {
     font-weight: bold;
@@ -64,24 +93,11 @@ header {
     align-items: center;
 }
 
-.header__nav {
-    display: none;
-    position: absolute;
-    border: 2px solid #191970;
-    background-color: #fff;
-    width: 20%;
-    font-size: 20px;
-    top: 100%;
-}
-
-.header__nav.active {
-    display: block;
-    margin-right: 0;
-}
-
 .nav--item {
     text-align: center;
-    padding: 10px;
+    border-bottom: solid 1px #141480;
+    height: 4rem;
+    padding: 20px 0;
 }
 
 .header__btn {
@@ -98,11 +114,26 @@ header {
     cursor: pointer;
     transform: rotate(45deg);
     transition: transform 0.3s;
-    z-index: 998;
 }
 
 .btn--open.active {
     transform: rotate(225deg);
+}
+
+.header__nav.active {
+    display: block;
+    position: absolute;
+    border: 2px solid #141480;
+    background-color: #fff;
+    width: 20%;
+    font-size: 20px;
+    top: 100%;
+    right: 0;
+    z-index: 999;
+}
+
+.header__nav {
+    display: none;
 }
 
 /* アイコン画像 */
@@ -116,24 +147,50 @@ header {
 
 /* topの投稿部分 */
 .posts {
+    flex-wrap: nowrap;
+    border-bottom: 10px solid #ddd;
+}
 
-    padding-left: 60px;
-    padding-right: 120px;
-    height: auto;
-    border-bottom: 4px solid #ddd;
+.posts__area{
+    display: flex ;
+    height: 150px;
+    padding:40px 0 20px 60px;
 }
 
 .posts__icon {
-    width: 40px;
-    height: 40px;
-    padding-top: 0;
+    height: 100%;
+/* MDNチェックする↓ */
+    /* vertical-align: bottom; */
 }
+
+.posts__from{
+    width: 80%;
+    margin-left: 10px;
+    padding-top: 10px;
+    display: flex;
+}
+
+.posts__btn{
+    margin-top: auto;
+    margin-left: 10px;
+    padding: 0;
+    background-color: transparent;
+    border: none;
+    appearance: none;
+    -moz-appearance: none;
+    -webkit-appearance: none;
+    cursor: pointer;
+}
+
+
 
 .posts__text {
     border: none;
     resize: none;
     outline: none;
     font-size: 20px;
+    width: 100%;
+    height: 100%;
 }
 
 .posts__btn {
@@ -144,6 +201,12 @@ header {
     background-size: contain;
     color: transparent;
     border: none;
+}
+
+
+.posted{
+    background-color: #f5ffb5;
+    border-bottom: 2px solid #ddd;
 }
 
 
@@ -179,21 +242,9 @@ header {
 }
 
 
-
-
-
-
-/* main content */
-#row {
-    display: flex;
-    flex-flow: row wrap;
-}
-
-#container {
-    flex: 0 0 80%;
-}
-
-#side-bar {
-    flex: 0 0 19%;
-    border-left: 1px solid #727272;
+/* プロフィール */
+.profile{
+padding: 60px 0 20px 200px;
+height: auto;
+background-color: antiquewhite;
 }

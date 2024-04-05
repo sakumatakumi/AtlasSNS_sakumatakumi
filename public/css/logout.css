@@ -83,6 +83,12 @@ body {
     font-size: 16px;
 }
 
+.button:hover{
+    background-color: rgb(109, 5, 5);
+    border:2px solid rgb(109, 5, 5);
+}
+
+
 .tab{
     color: #fff;
     margin-top: 50px;
@@ -113,6 +119,11 @@ body {
     font-size: 16px;
     text-align: center;
     margin: 0 auto;
+}
+
+.login_btn:hover{
+    background-color: rgb(109, 5, 5);
+    border:2px solid rgb(109, 5, 5);
 }
 
 .login_btn-tab {

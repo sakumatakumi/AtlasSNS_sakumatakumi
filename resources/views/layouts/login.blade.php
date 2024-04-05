@@ -30,6 +30,13 @@
                 <div class="header__menu">
                     <div class="header__btn">
                         <span class="btn--open"></span>
+                        <nav class="header__nav">
+                            <ul>
+                                <li class="nav--item"><a href="/top">HOME</a></li>
+                                <li class="nav--item"><a href="/profile">プロフィール編集</a></li>
+                                <li class="nav--item"><a href=" {{ route('logout') }}">ログアウト</a></li>
+                            </ul>
+                        </nav>
                     </div>
                     @if(Auth::user()->images == "icon1.png")
                     <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posts__icon">
@@ -38,22 +45,15 @@
                     @endif
                 </div>
             </div>
-            <nav class="header__nav">
-                <ul>
-                    <li class="nav--item"><a href="/top">HOME</a></li>
-                    <li class="nav--item"><a href="/profile">プロフィール編集</a></li>
-                    <li class="nav--item"><a href=" {{ route('logout') }}">ログアウト</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
-    <div id="row">
-        <div id="container">
+    <div class="row">
+        <div class="container">
             <!-- <div class="container"> -->
             @yield('content')
         </div>
-        <div id="side-bar">
-            <div id="confirm">
+        <div class="side-bar">
+            <div class="confirm">
                 <p>{{ Auth::user()->username }}　さんの</p>
                 <div>
                     <p>フォロー数</p>

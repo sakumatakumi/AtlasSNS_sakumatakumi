@@ -54,24 +54,32 @@
         </div>
         <div class="side-bar">
             <div class="confirm">
-                <p>{{ Auth::user()->username }}　さんの</p>
-                <div>
-                    <p>フォロー数</p>
+                <div class="confirm__name">
+                    <p>{{ Auth::user()->username }}さんの</p>
+                </div>
+                <div class="confirm__follow">
+                    <p class="follow-text">フォロー数</p>
                     <!-- 現在ログインしているユーザーがUserモデルで定義されたメソッドをの数を数えてね -->
-                    <p>{{ auth()->user()->followings()->count() }}名</p>
+                    <p class="follow-number">{{ auth()->user()->followings()->count() }}名</p>
                 </div>
-                <p class="btn"><a href="/follow-list">フォローリスト</a></p>
-                <div>
-                    <p>フォロワー数</p>
-                    <p>{{ auth()->user()->followers()->count() }}名</p>
+                <div class="confirm_btn">
+                    <p class="btn"><a href="/follow-list">フォローリスト</a></p>
                 </div>
-                <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                <div class="confirm__follow">
+                    <p class="follow-text">フォロワー数</p>
+                    <p class="follow-number">{{ auth()->user()->followers()->count() }}名</p>
+                </div>
+                <div class="confirm_btn">
+                    <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                </div>
             </div>
-            <p class="btn"><a href="/search">ユーザー検索</a></p>
+            <div class="confirm__search">
+                <p class="btn"><a href="/search">ユーザー検索</a></p>
+            </div>
+            <!-- <footer>
+            </footer> -->
         </div>
     </div>
-    <footer>
-    </footer>
     <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
     <script src="{{ asset('js/login.js') }}"></script>
 </body>

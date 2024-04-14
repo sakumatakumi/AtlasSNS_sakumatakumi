@@ -36,31 +36,46 @@
 @foreach ($posts as $post)
 <!-- 繰り返し（foreach））php読み返し -->
 <div class="posted">
-  @if($post->user->images == "icon1.png")
-  <img src="{{asset('images/icon1.png')}}" alt="User Icon" class="posted__icon">
-  @else
-  <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon">
-  @endif
-  <p class="posted__name">{{ $post->user->username }}</p>
-  <!--改行有りのタグ-->
-  <p class="posted__post">{{ $post->post }}</p>
-  <p class="posted__time">{{ $post->created_at_formatted }}</p>
-  <!-- ユーザーだけ表示 if文で区分してあげる。自分とその他。 -->
-  @if($post->user_id == Auth::id())
-  <div class="posted__edit">
-    <a class="js-modal-open" href="#" post="{{$post->post}}" post_id="{{$post->id}}">
-      <img src="images/edit.png" alt="編集" class="edit--btn">
-    </a>
+  <div class="posted__icon">
+    @if($post->user->images == "icon1.png")
+    <img src="{{asset('images/icon1.png')}}" alt="User Icon">
+    @else
+    <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon">
+    @endif
   </div>
-  <!-- ホバーしたとき切り替わる -->
-  <button type="submit" class="posted__trash" name="posted__trash">
-    <img src="images/trash.png" alt="削除" class="posted__trash--icon"></button>
-  <form action="{{ route('posts.delete', ['id' => $post->id]) }}" method="post">
-    @csrf
-    <button type="submit" class="posted__trash" name="posted__trash" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
-      <img src="images/trash-h.png" alt="削除ホバー" class="posted__trash--icon icon-hover"></button>
-  </form>
-  @endif
+  <div class="posted__text">
+    <div class="posted__name">
+      <p>{{ $post->user->username }}</p>
+    </div>
+    <!--改行有りのタグ-->
+    <div class="posted__post">
+      <p>{{ $post->post }}</p>
+    </div>
+  </div>
+  <div class="posted__item">
+    <div class="posted__time">
+      <p>{{ $post->created_at_formatted }}</p>
+    </div>
+    <!-- ユーザーだけ表示 if文で区分してあげる。自分とその他。 -->
+    <div class="posted__item--btn">
+      @if($post->user_id == Auth::id())
+      <div class="posted__edit">
+        <a class="js-modal-open" href="#" post="{{$post->post}}" post_id="{{$post->id}}">
+          <img src="images/edit.png" alt="編集" class="edit--btn">
+        </a>
+      </div>
+      <!-- ホバーしたとき切り替わる -->
+      <div class="posted__trash"></div>
+      <button type="submit" class="posted__trash--btn" name="posted__trash">
+        <img src="images/trash.png" alt="削除" class="posted__trash--img"></button>
+      <form action="{{ route('posts.delete', ['id' => $post->id]) }}" method="post">
+        @csrf
+        <button type="submit" class="posted__trash--btn hover" name="posted__trash" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+          <img src="images/trash-h.png" alt="削除ホバー" class="posted__trash--img"></button>
+      </form>
+      @endif
+    </div>
+  </div>
 </div>
 @endforeach
 

@@ -19,9 +19,9 @@
 @foreach ($users as $user)
 <div class="user__list">
   @if($user->images == "icon1.png")
-  <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
+  <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="icon">
   @else
-  <img src="{{asset('storage/profileImages/' . $user->images)}}" alt="User Icon" class="posted__icon">
+  <img src="{{asset('storage/profileImages/' . $user->images)}}" alt="User Icon" class="icon">
   @endif
   <p class="posted__name">{{ $user->username }}</p>
 

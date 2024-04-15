@@ -34,9 +34,9 @@
 
   @foreach ($post as $post)
   @if($post->user->images == "icon1.png")
-  <img src="{{asset('images/icon1.png')}}" alt="User Icon" class="posted__icon">
+  <img src="{{asset('images/icon1.png')}}" alt="User Icon" class="posted__icon" class="icon">
   @else
-  <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon">
+  <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon" class="icon">
   @endif
   <p class="posted__name">{{ $post->user->username }}</p>
   <!--改行有りのタグ-->

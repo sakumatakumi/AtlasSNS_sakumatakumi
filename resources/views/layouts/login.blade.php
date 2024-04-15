@@ -39,9 +39,9 @@
                         </nav>
                     </div>
                     @if(Auth::user()->images == "icon1.png")
-                    <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posts__icon">
+                    <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posts__icon" class="icon">
                     @else
-                    <img src="{{ asset('storage/profileImages/' . Auth::user()->images) }}" alt="User Icon" class="header__icon">
+                    <img src="{{ asset('storage/profileImages/' . Auth::user()->images) }}" alt="User Icon" class="icon">
                     @endif
                 </div>
             </div>

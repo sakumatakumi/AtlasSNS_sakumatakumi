@@ -9,14 +9,14 @@
   <form action="{{ route('other.profile', ['id' => $user]) }}" method="post">
     @csrf
     <button type="submit" class="followlist__btn" name="otherProfileIds">
-      <img src="{{ asset('images/icon1.png') }}" alt="User Icon">
+      <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="icon">
     </button>
   </form>
   @else
   <form action="{{ route('other.profile', ['id' => $user]) }}" method="post">
     @csrf
     <button type="submit" class="followlist__btn" name="otherProfileIds">
-      <img src="{{ asset('storage/profileImages/' . $user->images) }}" alt="User Icon">
+      <img src="{{ asset('storage/profileImages/' . $user->images) }}" alt="User Icon" class="icon">
     </button>
   </form>
   @endif
@@ -29,14 +29,14 @@
     <form action="{{ route('other.profile', ['id' => $post->user_id]) }}" method="post">
       @csrf
       <button type="submit" class="followlist__btn" name="otherProfileIds">
-        <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
+        <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="icon">
       </button>
     </form>
     @else
     <form action="{{ route('other.profile', ['id' => $post->user_id]) }}" method="post">
       @csrf
       <button type="submit" class="followlist__btn" name="otherProfileIds">
-        <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="posted__icon">
+        <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="icon">
       </button>
     </form>
     @endif

@@ -16,14 +16,14 @@
     <div class="posts__icon">
       {{ Form::open(['route' => 'posts']) }}
       @if(Auth::user()->images == "icon1.png")
-      <img src="{{ asset('images/icon1.png') }}" alt="User Icon">
+      <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="icon">
       @else
-      <img src="{{asset('storage/profileImages/' . Auth::user()->images)}}" alt="User Icon">
+      <img src="{{asset('storage/profileImages/' . Auth::user()->images)}}" alt="User Icon" class="icon">
       @endif
     </div>
     <div class="posts__from">
       <div class="posts__text">
-        {{ Form::textarea('post', null,['class' => 'posts__text', 'placeholder' => '投稿内容を入力してください。'])}}
+        {{ Form::textarea('post', null,['class' => 'posts__text', 'placeholder' => '投稿内容を入力してください。', "rows" => "15","cols"=> "20", "wrap" => "hard"])}}
       </div>
       <!-- <div class="posts__btn"> -->
       <input type="submit" class="posts__btn" name="posts__btn">
@@ -38,9 +38,9 @@
 <div class="posted">
   <div class="posted__icon">
     @if($post->user->images == "icon1.png")
-    <img src="{{asset('images/icon1.png')}}" alt="User Icon">
+    <img src="{{asset('images/icon1.png')}}" alt="User Icon" class="icon">
     @else
-    <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon">
+    <img src="{{asset('storage/profileImages/' . $post->user->images)}}" alt="User Icon" class="icon">
     @endif
   </div>
   <div class="posted__text">
@@ -65,14 +65,16 @@
         </a>
       </div>
       <!-- ホバーしたとき切り替わる -->
-      <div class="posted__trash"></div>
-      <button type="submit" class="posted__trash--btn" name="posted__trash">
-        <img src="images/trash.png" alt="削除" class="posted__trash--img"></button>
-      <form action="{{ route('posts.delete', ['id' => $post->id]) }}" method="post">
-        @csrf
-        <button type="submit" class="posted__trash--btn hover" name="posted__trash" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
-          <img src="images/trash-h.png" alt="削除ホバー" class="posted__trash--img"></button>
-      </form>
+      <div class="posted__trash">
+        <!-- <button type="submit" class="posted__trash--btn" name="posted__trash">
+        <img src="images/trash.png" alt="削除" class="posted__trash--img"></button> -->
+        <form action="{{ route('posts.delete', ['id' => $post->id]) }}" method="post">
+          @csrf
+          <button type="submit" class="posted__trash--btn" name="posted__trash" onclick="return confirm('こちらの投稿を削除してもよろしいでしょうか？')">
+            <!-- <img src="images/trash-h.png" alt="削除ホバー" class="posted__trash--img"> -->
+          </button>
+        </form>
+      </div>
       @endif
     </div>
   </div>

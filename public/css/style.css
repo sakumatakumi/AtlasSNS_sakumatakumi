@@ -29,6 +29,13 @@ img{
     height: 45px;
 }
 
+.icon{
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    object-fit: cover;
+}
+
 button{
     background-color: #fff;
     width: 45px;
@@ -119,13 +126,13 @@ background-color : #141480;
 }
 
 .nav--item a{
-    display: block;
+    display: inline-block;
     color: #9d9b9b;
 }
 
 .nav--item a:hover{
     display: block;
-color: #fff;
+    color: #fff;
 }
 
 
@@ -166,14 +173,6 @@ color: #fff;
     display: none;
     align-items: center;
 }
-
-/* アイコン画像 */
-.header__icon {
-    white-space: nowrap;
-    width: 40px;
-    height: 40px;
-}
-
 
 
 /* topの投稿部分 */
@@ -295,6 +294,10 @@ color: #fff;
     width: 60%;
 }
 
+.posted__post p{
+white-space: pre-wrap;
+}
+
 .posted__name{
 margin-bottom: 10px;
 }
@@ -316,9 +319,35 @@ margin-bottom: 10px;
 }
 
 .posted__trash{
-
+    width: 45px;
+    height: 45px;
 }
 
+.posted__edit{
+    margin-left: auto;
+    margin-right: 10px;
+}
+
+.posted__edit:hover{
+    opacity: 0.6;
+}
+
+.posted__trash--btn{
+    display: inline-block;
+    background-image: url(/images/trash.png);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 33px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+.posted__trash--btn:hover{
+    background-image: url(/images/trash-h.png);
+    background-size:cover;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
 
 /* サイドバー */
 .confirm{
@@ -364,9 +393,9 @@ margin-bottom: 10px;
     text-decoration: none;
     background-color: #186AC9;
     border: 1px solid #186AC9;
+    text-align: center;
     border-radius: 15px;
     width: 180px;
-    text-align: center;
     padding: 10px 0;
 }
 

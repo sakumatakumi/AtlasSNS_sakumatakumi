@@ -15,6 +15,7 @@ li {
     border: 0;
 } */
 
+
 /* ページ全体の基本的なフォントや行の設定 */
 body {
     /* font-family: 文字体 */
@@ -22,6 +23,7 @@ body {
     line-height: 1.6;
     color: #333;
     background-color: #fff;
+    box-sizing: border-box;
 }
 
 img{
@@ -49,7 +51,6 @@ button{
     color: #6f6a61;
 }
 
-
 /* main content */
 .row {
     position: absolute;
@@ -62,14 +63,12 @@ button{
 .container {
     flex: 0 0 80%;
     /* display: calc(100% / 5); */
-    height: 100%;
     border-right: 2px solid #ddd;
 }
 
 .side-bar {
     /* flex: 0 0 19.9%; */
     width: 19.9%;
-    height: 100%;
     background-color: #c4ffec;
 }
 
@@ -110,13 +109,12 @@ header {
 }
 
 .nav--item {
-    display: flex;
-    /* text-decoration: none; */
+    display: block;
     text-align: center;
     justify-content: center;
     align-items: center;
     border-bottom: solid 1px #141480;
-    height: 4rem;
+    height: 100%;
     transition: all 0.3s ease;
 }
 
@@ -126,7 +124,9 @@ background-color : #141480;
 }
 
 .nav--item a{
-    display: inline-block;
+    display: block;
+    padding-top: 20px;
+    padding-bottom: 20px;
     color: #9d9b9b;
 }
 
@@ -146,8 +146,8 @@ background-color : #141480;
     display: inline-block;
     width: 10px;
     height: 10px;
-    border-right: 2px solid #fff;
-    border-bottom: 2px solid #fff;
+    border-right: 3px solid #fff;
+    border-bottom: 3px solid #fff;
     cursor: pointer;
     transform: rotate(45deg);
     transition: transform 0.3s;
@@ -176,6 +176,7 @@ background-color : #141480;
 
 
 /* topの投稿部分 */
+
 .posts {
     flex-wrap: nowrap;
     border-bottom: 10px solid #ddd;
@@ -185,12 +186,6 @@ background-color : #141480;
     display: flex ;
     height: 150px;
     padding:40px 0 20px 60px;
-}
-
-.posts__icon {
-    height: 100%;
-/* MDNチェックする↓ */
-    /* vertical-align: bottom; */
 }
 
 .posts__from{
@@ -281,7 +276,6 @@ background-color : #141480;
     /* justify-content: flex-end; */
     padding-top: 20px;
     padding-bottom: 20px;
-    background-color: #f5ffb5;
     border-bottom: 2px solid #ddd;
 }
 
@@ -353,7 +347,6 @@ margin-bottom: 10px;
 .confirm{
     padding: 20px 10px 40px 20px;
     border-bottom: 2px solid #ddd;
-/* height: 100%; */
 }
 
 
@@ -377,6 +370,9 @@ margin-bottom: 10px;
 }
 
 .confirm_btn a{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
     color: #fff;
 }
 
@@ -386,6 +382,9 @@ margin-bottom: 10px;
 }
 
 .confirm__search a{
+    display: block;
+    padding-top: 10px;
+    padding-bottom: 10px;
     color: #fff;
 }
 
@@ -396,7 +395,6 @@ margin-bottom: 10px;
     text-align: center;
     border-radius: 15px;
     width: 180px;
-    padding: 10px 0;
 }
 
 .btn:hover{
@@ -406,7 +404,89 @@ margin-bottom: 10px;
 
 /* プロフィール */
 .profile{
-padding: 60px 0 20px 200px;
-height: auto;
-background-color: antiquewhite;
+    padding: 60px 0 20px 200px;
+    /* height: 100%; */
+    background-color: antiquewhite;
+}
+
+.profile__item{
+    display: flex;
+    background-color: rgb(155, 122, 78);
+}
+
+.profile__edit{
+    display: inline-block;
+    width: 80%;
+    background-color: #186AC9;
+}
+
+.edit--item{
+    padding-top: 10px;
+    padding-left: 20px;
+}
+
+.edit--item li {
+    display: flex;
+    padding-bottom:60px;
+    justify-content: space-between;
+}
+
+.edit--item label{
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.edit--item input{
+    margin-right: 0;
+    margin-left: auto;
+    font-size: 20px;
+    appearance: none;
+    width: 20em;
+    height: 1.8em;
+    background: rgb(217, 215, 215);
+}
+
+.editImages{
+    font-size: 20px;
+    appearance: none;
+    width: 20em;
+    height: 5em;
+    display: inline-block;
+    background: rgb(217, 215, 215);
+}
+
+/* フォロー、フォロワーリスト */
+.followerlist,
+.followlist{
+    display: flex;
+    border-bottom: 10px solid #ddd;
+    padding-top: 30px;
+    background-color: #4b5b6e;
+}
+
+.followerlist h2,
+.followlist h2{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+.followlist__titil,
+.followerlist__titil{
+    margin-left: 50px;
+    margin-right: 30px;
+}
+
+.followlist__user,
+.followerlist__user{
+    display: flex;
+    width: 50%;
+    height: auto;
+    margin-bottom: 40px;
+    background-color: antiquewhite;
+}
+
+.followlist button,
+.followerlist button{
+    margin-right: 10px;
+    margin-bottom: 10px;
 }

@@ -14,48 +14,57 @@
 @endif
 
 <div class=profile>
-  <div class="profile__edit">
-    <div class="posts__icon">
+  <div class="profile__item">
+    <div class="profile__icon">
       @if(Auth::user()->images == "icon1.png")
       <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="icon">
       @else
       <img src="{{asset('storage/profileImages/' . Auth::user()->images)}}" alt="User Icon" class="icon">
       @endif
+    </div>
+    <div class="profile__edit">
       <form action="{{ route('profile.update') }}" method="post" enctype="multipart/form-data">
         @csrf
         <!--フォームエリア-->
-        <label class="edit--text" for="name">お名前</label>
-        <input type="text" name="editName" value="{{ Auth::user()->username }}" class="edit-name">
+        <ul class="edit--item">
+          <li>
+            <label for="name">ユーザー名</label>
+            <input type="text" name="editName" value="{{ Auth::user()->username }}">
+          </li>
 
-        <div class="profile__text">
-          <label class="edit--text" for="email">メールアドレス</label>
-          <input type="text" name="editMail" value="{{ Auth::user()->mail }}" class="edit-mail">
-        </div>
+          <li>
+            <label for="email">メールアドレス</label>
+            <input type="text" name="editMail" value="{{ Auth::user()->mail }}">
+          </li>
 
-        <div class="profile__edit">
-          <label class="edit--text" for="password">パスワード</label>
-          <input type="password" name="editPassword" value="" class="edit--password">
-        </div>
+          <li>
+            <label for="password">パスワード</label>
+            <input type="password" name="editPassword" value="">
+          </li>
 
-        <div class="profile__edit">
-          <label class="edit--text" for="passwordConfirmation">パスワード確認</label>
-          <!-- name="editPassword_confirmation"この書き方じゃないと、バリデーションの|confirmed'にひっかからない -->
-          <input type="password" name="editPassword_confirmation" value="" class="edit--passwordConfirmation">
-        </div>
+          <li>
+            <label for="passwordConfirmation">パスワード確認</label>
+            <!-- name="editPassword_confirmation"この書き方じゃないと、バリデーションの|confirmed'にひっかからない -->
+            <input type="password" name="editPassword_confirmation" value="">
+          </li>
 
-        <div class="profile__edit">
-          <label class="edit--text" for="bio">自己紹介</label>
-          <textarea name="editBio" class=edit--bio>{{ Auth::user()->bio }}</textarea>
-        </div>
+          <li>
+            <label for="bio">自己紹介</label>
+            <textarea name="editBio">{{ Auth::user()->bio }}</textarea>
+          </li>
 
-        <div class="profile__edit">
-          <label class="edit--text" for="images">アイコン画像</label>
-          <input type="file" name="editImages">
-        </div>
-        <input class="send-button" type="submit" value="更新">
-      </form>
+          <li>
+            <label for="images">アイコン画像</label>
+            <div class="editImages"><input type="file" name="editImages"></div>
+          </li>
+        </ul>
     </div>
+  </div>
 
+  <div class="profile__btn">
+    <input class="send-button" type="submit" value="更新">
+  </div>
+</div>
+</form>
 
-
-    @endsection
+@endsection

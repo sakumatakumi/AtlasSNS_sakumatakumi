@@ -47,7 +47,6 @@
     <div class="posted__name">
       <p>{{ $post->user->username }}</p>
     </div>
-    <!--改行有りのタグ-->
     <div class="posted__post">
       <p>{{ $post->post }}</p>
     </div>

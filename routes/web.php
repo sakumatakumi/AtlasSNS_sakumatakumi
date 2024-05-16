@@ -51,6 +51,7 @@ Route::group(
     Route::post('/search', 'UsersController@search');
 
     Route::post('/follow/{user_id_to_follow}', 'FollowsController@followUser')->name('follow');
+
     Route::post('/unfollow/{user_id_to_unfollow}', 'FollowsController@unfollowUser')->name('unfollow');
 
     Route::get('/follow-list', 'FollowsController@followList');

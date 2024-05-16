@@ -17,7 +17,7 @@
     @else
     <form action="{{ route('other.profile', ['id' => $user]) }}" method="post">
       @csrf
-      <button type="submit" class="followlist__btn" name="otherProfileIds">
+      <button type="submit" class="followerlist__btn" name="otherProfileIds">
         <img src="{{ asset('storage/profileImages/' . $user->images) }}" alt="User Icon" class="icon">
       </button>
     </form>

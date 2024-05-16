@@ -1,41 +1,47 @@
-@extends('layouts.login')
+@eotherProfile__userxtends('layouts.login')
 
 @section('content')
 
 <div class="otherProfile">
-  <div class="otherProfile__img">
-    @if($user->images == "icon1.png")
-    <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
-    @else
-    <img src="{{asset('storage/profileImages/' . $user->images)}}" alt="User Icon" class="posted__icon">
-    @endif
+  <div class="">
+    <div class="otherProfile__img">
+      @if($user->images == "icon1.png")
+      <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
+      @else
+      <img src="{{asset('storage/profileImages/' . $user->images)}}" alt="User Icon" class="posted__icon">
+      @endif
+    </div>
+    <ul class="otherProfile--item">
+      <li>
+        <p>ユーザー名</p>
+        <p>{{ $user->username }}</p>
+      </li>
+      <li>
+        <p>自己紹介</p>
+        <p>{{ $user->bio }}</p>
+      </li>
+    </ul>
   </div>
-  <ul class="otherProfile--item">
-    <li>
-      <p>ユーザー名</p>
-      <p>{{ $user->username }}</p>
-    </li>
-    <li>
-      <p>自己紹介</p>
-      <p>{{ $user->bio }}</p>
-    </li>
-  </ul>
   <div class="otherProfile__btn">
     @if(auth()->user()->isFollowing($user->id))
     <form action="{{ route('unfollow', $user->id) }}" method="POST">
       @csrf
-      <input type="hidden" name="user_id_to_unfollow" value="{{ $user->id }}">
-      <button type="submit">
-        フォロー解除
-      </button>
+      <div id="unfollow--btn">
+        <input type="hidden" name="user_id_to_unfollow" value="{{ $user->id }}">
+        <button type="submit">
+          フォロー解除
+        </button>
+      </div>
     </form>
     @else
     <form action="{{ route('follow', $user->id) }}" method="POST">
       @csrf
-      <input type="hidden" name="user_id_to_follow" value="{{ $user->id }}">
-      <button type="submit">
-        フォローする
-      </button>
+      <div id="follow--btn">
+        <input type="hidden" name="user_id_to_follow" value="{{ $user->id }}">
+        <button type="submit">
+          フォローする
+        </button>
+      </div>
     </form>
     @endif
   </div>

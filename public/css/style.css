@@ -38,6 +38,18 @@ img{
     object-fit: cover;
 }
 
+input {
+    margin: 0;
+    padding: 0;
+    background: none;
+    border: none;
+    border-radius: 0;
+    outline: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+}
+
 button{
     background-color: #fff;
     width: 45px;
@@ -69,7 +81,6 @@ button{
 .side-bar {
     /* flex: 0 0 19.9%; */
     width: 19.9%;
-    background-color: #c4ffec;
 }
 
 
@@ -402,22 +413,20 @@ margin-bottom: 10px;
     transition: transform 0.3s;
 }
 
+
 /* プロフィール */
 .profile{
+    position: relative;
     padding: 60px 0 20px 200px;
-    /* height: 100%; */
-    background-color: antiquewhite;
 }
 
 .profile__item{
     display: flex;
-    background-color: rgb(155, 122, 78);
 }
 
 .profile__edit{
     display: inline-block;
     width: 80%;
-    background-color: #186AC9;
 }
 
 .edit--item{
@@ -439,11 +448,26 @@ margin-bottom: 10px;
 .edit--item input{
     margin-right: 0;
     margin-left: auto;
+    padding-left: 0.5em;
     font-size: 20px;
     appearance: none;
     width: 20em;
     height: 1.8em;
     background: rgb(217, 215, 215);
+    border: 2px solid rgb(157, 157, 157);
+}
+
+.edit--item textarea {
+    margin-right: 0;
+    margin-left: auto;
+    padding-left: 0.5em;
+    font-size: 20px;
+    appearance: none;
+    width: 20em;
+    height: 1.8em;
+    background: rgb(217, 215, 215);
+    border: 2px solid rgb(157, 157, 157);
+    resize: none;
 }
 
 .editImages{
@@ -455,13 +479,34 @@ margin-bottom: 10px;
     background: rgb(217, 215, 215);
 }
 
+.profile__btn{
+    text-align: center;
+}
+
+.profile__btn input{
+    color: #fff;
+    font-size: 20px;
+    width: 10em;
+    height: 2em;
+    background: rgb(219, 23, 23);
+    border-radius: 15px;
+    border: 1px solid rgb(219, 23, 23);
+    pointer-events: auto;
+    cursor: pointer;
+}
+
+.profile__btn input:hover{
+    opacity: 0.5;
+    transition: transform 0.3s;
+}
+
+
 /* フォロー、フォロワーリスト */
 .followerlist,
 .followlist{
     display: flex;
     border-bottom: 10px solid #ddd;
     padding-top: 30px;
-    background-color: #4b5b6e;
 }
 
 .followerlist h2,
@@ -482,21 +527,31 @@ margin-bottom: 10px;
     width: 50%;
     height: auto;
     margin-bottom: 40px;
-    background-color: antiquewhite;
 }
 
 .followlist button,
 .followerlist button{
     margin-right: 10px;
     margin-bottom: 10px;
+    cursor: pointer;
+}
+
+.posted button{
+    cursor: pointer;
 }
 
 
 /* otherProfileゾーン */
 .otherProfile{
+    position: relative;
     display: flex;
     border-bottom: 10px solid #ddd;
-    padding: 30px 10px 40px 0;
+    padding: 30px 30px 10px 0;
+    justify-content: space-between;
+}
+
+.otherProfile__user{
+    display: flex;
 }
 
 .otherProfile__img{
@@ -516,4 +571,90 @@ margin-bottom: 10px;
 .otherProfile__btn{
     padding-left: auto;
     padding-right: 0;
+    bottom: 0;
+}
+
+/* searchゾーン */
+.search{
+    display: flex;
+    border-bottom: 10px solid #ddd;
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.serch__window{
+    margin-left: 50px;
+    margin-right: 20px;
+}
+
+.serch__window input{
+    height: 45px;
+    width: 180px;
+    padding-left: 10px;
+    border: 3px solid #ddd;
+    border-radius: 5px;
+}
+
+.serch__item button{
+    cursor: pointer;
+}
+
+.serch__item button:hover{
+    opacity: 0.5;
+    transition: transform 0.3s;
+}
+
+.serch__item img{
+    width: 45px;
+    height: 45px;
+    border-radius: 5px;
+}
+
+.search__word{
+    margin-left: auto;
+    margin-right: 200px;
+    font-size: 20px;
+}
+
+.search__word p{
+    text-align: center;
+}
+
+.search__list{
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.search__list--item{
+    display: flex;
+    justify-content: space-between;
+    width:50%;
+    margin: 0 auto;
+}
+
+.item--user{
+    display: flex;
+    align-items: center;
+}
+
+.item--user p{
+    margin-left: 20px;
+}
+
+#unfollow--btn button{
+    width: 9em;
+    height: 2.6em;
+    background-color: rgb(219, 23, 23);
+    border: 1px solid rgb(219, 23, 23);
+    border-radius: 10px;
+    color: #fff;
+}
+
+#follow--btn button{
+    width: 9em;
+    height: 2.6em;
+    background-color: #186AC9;
+    border: 1px solid #186AC9;
+    border-radius: 10px;
+    color: #fff;
 }

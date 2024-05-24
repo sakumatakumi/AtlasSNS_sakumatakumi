@@ -63,14 +63,14 @@
                     <p class="follow-number">{{ auth()->user()->followings()->count() }}名</p>
                 </div>
                 <div class="confirm_btn">
-                    <p class="btn"><a href="/follow-list">フォローリスト</a></p>
+                    <p class="btn btn--position"><a href="/follow-list">フォローリスト</a></p>
                 </div>
                 <div class="confirm__follow">
                     <p class="follow-text">フォロワー数</p>
                     <p class="follow-number">{{ auth()->user()->followers()->count() }}名</p>
                 </div>
                 <div class="confirm_btn">
-                    <p class="btn"><a href="/follower-list">フォロワーリスト</a></p>
+                    <p class="btn btn--position"><a href="/follower-list">フォロワーリスト</a></p>
                 </div>
             </div>
             <div class="confirm__search">

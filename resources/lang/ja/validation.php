@@ -155,8 +155,13 @@ return [
 
     'attributes' => [
         'username' => 'ユーザー名',
+        'editName' => 'ユーザー名',
         'mail' => 'メール',
+        'editMail' => 'メール',
         'password' => 'パスワード',
+        'editPassword' => 'パスワード',
+        'editBio' => '自己紹介',
+        'editImages' => 'アイコン画像',
         'post' => '投稿'
     ],
 

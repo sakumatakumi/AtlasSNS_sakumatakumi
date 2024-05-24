@@ -63,6 +63,18 @@ button{
     color: #6f6a61;
 }
 
+/* バリデーション */
+.alert {
+    color: rgb(190, 25, 25);
+    font-size: 15px;
+    font-weight: bold;
+    text-align: left;
+}
+
+.alert li {
+    margin-bottom: 10px;
+}
+
 /* main content */
 .row {
     position: absolute;
@@ -194,8 +206,8 @@ background-color : #141480;
 }
 
 .posts__area{
-    display: flex ;
-    height: 150px;
+    display: flex;
+    /* height: 150px; */
     padding:40px 0 20px 60px;
 }
 
@@ -223,14 +235,20 @@ background-color : #141480;
     opacity: 0.5;
 }
 
+.posts__text--zone{
+    width: 80%;
+}
 
-.posts__text {
+#posts__text {
     border: none;
     resize: none;
     outline: none;
+    overflow: hidden;
     font-size: 20px;
     width: 100%;
-    height: 100%;
+    padding: 5px;
+    height: 1.5em;
+    min-height: 1.5em;
 }
 
 .posts__btn {
@@ -243,6 +261,11 @@ background-color : #141480;
     border: none;
 }
 
+.alert-post{
+padding-left: 120px;
+padding-bottom: 10px;
+}
+
 
 
 /* モーダル部分 */
@@ -253,6 +276,7 @@ background-color : #141480;
 }
 
 .modal {
+    position: relative;
     display: none;
     /* height: 100vh; */
     height: 100px;
@@ -263,20 +287,43 @@ background-color : #141480;
 
 .modal__bg {
     background: rgba(0, 0, 0, 0.8);
-    /* height: 100vh; */
-    height: 100px;
+    height: 100vh;
     position: absolute;
     width: 100%;
 }
 
 .modal__content {
-    background: #fff;
-    left: 50%;
-    padding: 40px;
     position: absolute;
-    top: 50%;
+    background: #fff;
+    top: 350px;
+    left: 50%;
+    margin: auto;
+    padding: 40px;
     transform: translate(-50%, -50%);
-    width: 60%;
+    width: 800px;
+    height: 350px;
+    border: 1px solid #fff;
+    border-radius: 15px;
+}
+
+.modal_post{
+    resize: none;
+    outline: none;
+    overflow: hidden;
+    font-size: 20px;
+    width: 100%;
+    padding: 5px;
+    height: 250px;
+}
+
+.modal_btn{
+    display: flex;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.modal_btn:hover{
+    opacity: 0.5;
 }
 
 
@@ -315,6 +362,7 @@ margin-bottom: 10px;
 .posted__time{
     margin-top: 0;
     margin-bottom: auto;
+    white-space: nowrap
 }
 
 .posted__item--btn{
@@ -376,8 +424,11 @@ margin-bottom: 10px;
 
 .confirm_btn{
     margin-top: 10px;
-    margin-left: 40%;
     margin-right: auto;
+}
+
+.btn--position{
+    margin: 0 0 0 auto;
 }
 
 .confirm_btn a{
@@ -388,8 +439,9 @@ margin-bottom: 10px;
 }
 
 .confirm__search{
+    display: flex;
     padding-top: 20px;
-    padding-left: 25%;
+    justify-content: center;
 }
 
 .confirm__search a{
@@ -397,6 +449,10 @@ margin-bottom: 10px;
     padding-top: 10px;
     padding-bottom: 10px;
     color: #fff;
+}
+
+.confirm_btn{
+    padding-right: 0;
 }
 
 .btn{
@@ -460,10 +516,11 @@ margin-bottom: 10px;
 .edit--item textarea {
     margin-right: 0;
     margin-left: auto;
-    padding-left: 0.5em;
+    padding: 0.5em;
     font-size: 20px;
+    line-height: 1.5em;
     appearance: none;
-    width: 20em;
+    width: 19.5em;
     height: 1.8em;
     background: rgb(217, 215, 215);
     border: 2px solid rgb(157, 157, 157);
@@ -473,10 +530,35 @@ margin-bottom: 10px;
 .editImages{
     font-size: 20px;
     appearance: none;
-    width: 20em;
-    height: 5em;
+    width: 20.5em;
     display: inline-block;
     background: rgb(217, 215, 215);
+    border: 2px solid rgb(157, 157, 157);
+}
+
+.editImages--lavel{
+    height: 100%;
+    width: 100%;
+}
+
+.editImages--text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.editImages p{
+    font-size: 20px;
+    text-align: center;
+    height: 1.5em;
+    width: 10em;
+    background-color: rgb(255, 255, 255);;
+    color: rgb(170, 170, 170);
+}
+
+.editImages-box{
+display:none;
 }
 
 .profile__btn{
@@ -500,6 +582,9 @@ margin-bottom: 10px;
     transition: transform 0.3s;
 }
 
+.alert-danger{
+    padding-left: 480px;
+}
 
 /* フォロー、フォロワーリスト */
 .followerlist,
@@ -572,6 +657,12 @@ margin-bottom: 10px;
     padding-left: auto;
     padding-right: 0;
     bottom: 0;
+}
+
+.space__btn{
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 20px;
 }
 
 /* searchゾーン */

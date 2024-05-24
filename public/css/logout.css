@@ -141,3 +141,7 @@ font-size: 15px;
 font-weight: bold;
 text-align: left;
 }
+
+.alert li{
+margin-bottom: 10px;
+}

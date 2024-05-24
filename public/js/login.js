@@ -41,3 +41,16 @@ $(function () {
     return false;
   });
 });
+
+
+// 要確認
+// 投稿部分の自動可変
+ $(document).ready(function() {
+            const ta = document.getElementById('posts__text');
+            const ch = ta.clientHeight;
+            ta.addEventListener('input', function() {
+                ta.style.height = 'auto'; // 一旦高さをリセット
+                const sh = ta.scrollHeight;
+                ta.style.height = sh + 'px'; // scrollHeightに基づいて高さを設定
+            });
+        });

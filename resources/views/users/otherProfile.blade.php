@@ -1,9 +1,9 @@
-@eotherProfile__userxtends('layouts.login')
+@extends('layouts.login')
 
 @section('content')
 
 <div class="otherProfile">
-  <div class="">
+  <div class="otherProfile__user">
     <div class="otherProfile__img">
       @if($user->images == "icon1.png")
       <img src="{{ asset('images/icon1.png') }}" alt="User Icon" class="posted__icon">
@@ -22,7 +22,7 @@
       </li>
     </ul>
   </div>
-  <div class="otherProfile__btn">
+  <div class="otherProfile__btn space__btn">
     @if(auth()->user()->isFollowing($user->id))
     <form action="{{ route('unfollow', $user->id) }}" method="POST">
       @csrf

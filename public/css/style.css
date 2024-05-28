@@ -162,6 +162,7 @@ background-color : #141480;
 
 .header__btn {
     margin-right: 20px;
+    margin-top: 8px;
 }
 
 /* アコーディオンメニューのボタン */
@@ -531,6 +532,7 @@ margin-bottom: 10px;
     font-size: 20px;
     appearance: none;
     width: 20.5em;
+    height: 5em;
     display: inline-block;
     background: rgb(217, 215, 215);
     border: 2px solid rgb(157, 157, 157);
